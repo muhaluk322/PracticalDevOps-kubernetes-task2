@@ -1,0 +1,25 @@
+name: Docker Task
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+  
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Create k8s Kind Cluster
+      uses: helm/kind-action@v1.5.0
+    - name: Deploy to kubernetes cluster
+      run: |
+        kubectl apply -f db-deployment.yml
+        kubectl apply -f webapp-deployment.yml
+        kubectl apply -f db-service.yml
+        kubectl apply -f webapp-service.yml
+ 

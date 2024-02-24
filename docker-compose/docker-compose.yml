@@ -1,0 +1,28 @@
+version: '3'
+services:
+  db:
+    build:
+      context: .
+      dockerfile: Dockerfile_db
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: ruby
+      POSTGRES_USER: ruby
+      POSTGRES_PASSWORD: mypass
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile_app
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://ruby:mypass@db:5432/ruby
+
+volumes:
+  pg_data:

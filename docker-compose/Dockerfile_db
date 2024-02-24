@@ -1,0 +1,10 @@
+# Use an official PostgreSQL image as a parent image
+FROM postgres:latest
+
+# Set environment variables
+ENV POSTGRES_DB "ruby"
+ENV POSTGRES_USER "ruby"
+ENV POSTGRES_PASSWORD "mypass"
+
+# Expose the PostgreSQL port
+EXPOSE 5432

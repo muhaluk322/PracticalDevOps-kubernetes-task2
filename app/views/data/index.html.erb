@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Data</h1>
+
+<div id="data">
+  <% @data.each do |datum| %>
+    <%= render datum %>
+    <p>
+      <%= link_to "Show this datum", datum %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New datum", new_datum_path %>
+
+<div><%= @version %></div>

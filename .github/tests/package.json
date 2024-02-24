@@ -1,0 +1,11 @@
+{
+    "name": "tests",
+    "version": "1.0.0",
+    "description": "",
+    "scripts": {},
+    "author": "SoftServe IT Academy",
+    "license": "ISC",
+    "devDependencies": {
+        "cypress": "^12.17.4"
+    }
+}

@@ -1,0 +1,22 @@
+<%= form_with(model: datum) do |form| %>
+  <% if datum.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(datum.errors.count, "error") %> prohibited this datum from being saved:</h2>
+
+      <ul>
+        <% datum.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :someData, style: "display: block" %>
+    <%= form.text_field :someData %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
